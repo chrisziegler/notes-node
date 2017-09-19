@@ -1,0 +1,27 @@
+
+Hello Chris! 
+You are undefined.
+Hello Chris! 
+You are () => '50'.
+Hello Chris! 
+You are () => '50'.
+Hello Chris! 
+You are 50.
+Hello Chris! 
+You are 50.
+Hello Chris! 
+You are 50.
+Hello Chris! 
+You are 50.
+Hello Chris! 
+You are 50.
+Hello Chris! 
+You are 50.
+Hello Chris! 
+You are 50.
+Hello Chris! 
+You are 50.
+Hello Chris! 
+You are 50.
+Hello Chris! 
+You are 50.
