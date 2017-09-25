@@ -21,15 +21,10 @@ if(command === 'add') {
         console.log('title already in use');
     }
 } else if (command === 'list') {
-    //since not returns an array of objects, instead of single object
-    //cannot simply combine both functions with logNote()
     let allNotes = notes.getAll();
-    console.log(allNotes);
     console.log(`Printing ${allNotes.length} note(s).`);
-    for (let obj in allNotes) {
-        let item = allNotes[obj]; //so note[0], note[1], etc
-        notes.logNote(item)
-    }
+    allNotes.forEach((note) => notes.logNote(note));
+
 } else if (command === 'read') {
     let note = notes.getNote(argv.title);
     if (note) {

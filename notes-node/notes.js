@@ -46,26 +46,6 @@ const removeNote = (title) =>{
 };
 
 const logNote = (note) => {
-    // //use 1st section if  logNote to handle both read and list
-    // // console.log(note.length)
-    // //use lodash to check type - if array of objects, or single object?
-    // console.log(note)
-    // // when using list command to getAll - multiple titles - note returns
-    // // [ { title: 'note7', body: 'body7' },
-    // // { title: 'note8', body: 'body8' },
-    // // { title: 'hello', body: 'world' } ]
-    // //ADD THIS EXAMPLE TO EXERCISM ITERATING OBJECTS/JSON ASIDE
-    // console.log('List of notes\n--------------------------');
-    // for (let prop in note) {
-    //     let item = note[prop]; //so note[0], note[1], etc
-    //     //just selecting the objects with this one
-    //     //get the values off each item contained on the objects in the array we're
-    //     //iterating through. Better without the 'title' & 'body' labels here.
-    //     console.log(`title: ${item.title}, body: ${item.body}`);
-    // }
-
-
-    //complete old code
     console.log('----------------');
     console.log(`Title: ${note.title}`);
     console.log(`Body: ${note.body}`);
