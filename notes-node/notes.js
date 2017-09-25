@@ -38,10 +38,9 @@ const getNote = (title) => {
 }
 const removeNote = (title) =>{
  let notes = fetchNotes();
- console.log(notes);
  let filteredNotes = notes.filter((note) => note.title !== title);
- console.log(filteredNotes);
  saveNotes(filteredNotes);
+ //returns true if an actual note was removed
  return notes.length !== filteredNotes.length;
 };
 
