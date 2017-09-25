@@ -23,11 +23,12 @@ if(command === 'add') {
 } else if (command === 'list') {
     //since not returns an array of objects, instead of single object
     //cannot simply combine both functions with logNote()
-    let note = notes.getAll();
-    console.log('List of notes\n--------------------------');
-    for (let prop in note) {
-        let item = note[prop]; //so note[0], note[1], etc
-        console.log(`title: ${item.title}, body: ${item.body}`);
+    let allNotes = notes.getAll();
+    console.log(allNotes);
+    console.log(`Printing ${allNotes.length} note(s).`);
+    for (let obj in allNotes) {
+        let item = allNotes[obj]; //so note[0], note[1], etc
+        notes.logNote(item)
     }
 } else if (command === 'read') {
     let note = notes.getNote(argv.title);
