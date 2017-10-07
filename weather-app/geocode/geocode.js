@@ -1,26 +1,32 @@
 const request = require('request');
 
-module.exports.geocodeAddress = (address) => {
+const geocodeAddress = (address, callback) => {
     let encodeAddr = encodeURIComponent(address);
     request({
-        url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeAddr}`,
+        url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeAddr}&key=AIzaSyCnCkQQBnk7cbkjPtVqBgR3wTVVkjBwsRg`,
         json: true
     }, (error, response, body) => {
+        // console.log(JSON.stringify(body, undefined, 4));
         if(error) {
-            console.log('Unable to connect to Google Servers')
+            //only uses 1st argument provided by default 2nd (results) is unneeded and will be undefined
+            callback('Unable to connect to Google Servers')
         } else if(body.status === "ZERO_RESULTS") {
-            console.log('Unable to find that address')
+            callback('Unable to find that address')
         } else if (body.status = "OK") {
-            console.log(`Address: ${body.results[0].formatted_address}`)
-            console.log(`latitude: ${body.results[0].geometry.location.lat}`);
-            console.log(`longitude: ${body.results[0].geometry.location.lng}`);
+            //here first argument needs to be undefined since we're not using errorMessage
+            //2nd will be a the results object we define
+            callback(undefined, {
+                address: body.results[0].formatted_address,
+                latitude: body.results[0].geometry.location.lat,
+                longitude: body.results[0].geometry.location.lng
+            });
         }
     });
 }
 
-// module.exports.geocodeAddress = geocodeAddress;
+module.exports.geocodeAddress = geocodeAddress;
 
-//saem as module.exports = { geocodeAddress }     and
+//saem as module.exports = { geocodeAddress }     and exporting the arrow function itself
 //   module.exports.geocodeAddress = (address) => {
 //      ...
 // NOTE the circumstance where the syntax module.exports = geocodeAddress; will work
